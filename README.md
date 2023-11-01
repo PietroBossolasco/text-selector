@@ -2,64 +2,83 @@
 
 ![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-The Text-Selector library is a JavaScript library that allows you to create custom select elements with a text label that, when clicked, displays a list of options. It provides an alternative and visually appealing way to present and interact with select options.
+The Text-Selector library is a JavaScript library that enables you to enhance the user experience with select elements. It allows you to replace standard select elements with custom-designed text and provides the ability to open and close the selection dynamically. This library also supports animations when jQuery is included.
 
 ## Features
-* Show a list of selectable options when the text label is clicked.
-* Easy to initialize with a simple function call.
+* Easily transform standard select elements into custom-designed text elements.
+* Customize the text with specific CSS classes and text element tags.
+* Animations for opening and closing the selector (requires jQuery).
+* Simplified initialization with a single function call.
 
 ## Installation
-To use the Text-Selector library, you can include the JavaScript file in your HTML:
+To use the Text-Selector library, follow these steps:
+
+1. Include the text-selector.min.js JavaScript file and the text-selector.min.css CSS file in your HTML.
+1. Optionally, include jQuery if you want to enable animations for opening and closing the selector. Make sure to include jQuery before the Text-Selector library.
+
 ```html
-<script src="text-selector.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="text-selector.min.js"></script>
+<link rel="stylesheet" href="text-selector.min.css">
 ```
-Make sure to include the library after the document is loaded.
+
 ## Usage
-* Include the text-selector.js file in your HTML.
-* Create a standard select element and an associated text element. Assign id attributes to both elements.
+1. In your HTML document, insert a select element with the class text-selector. You can further customize the text by using the text-class attribute to add specific CSS classes and the text-element attribute to specify the HTML tag for the text (default is p).
 
 ```html
-<select id="mySelect">
-    <option value="option1">Option 1</option>
-    <option value="option2">Option 2</option>
-    <option value="option3">Option 3</option>
+<select id="select" class="text-selector" text-class="prova" text-element="h1">
+    <option value="a">option 1</option>
+    <option value="b">option 2</option>
+    <option value="c">option 3</option>
+    <option value="d">option 4</option>
 </select>
-
-<div id="myText">Click me to select an option</div> <!-- It work with all the elements! -->
 ```
-* Initialize the Text-Selector library by calling the textselectorinit function, passing an array of objects that define the text and select element pairs:
 
-```js
-textselectorinit([
-    { text: 'myText', data: 'mySelect' }
-]);
+1. Initialize the Text-Selector library by calling the textSelector.init() function. This function should be called after the document has loaded.
+
+```html
+<script>
+    window.onload = function () {
+        textSelector.init();
+    };
+</script>
 ```
-Your custom text-selector element is now ready to use. When you click on the text element, it will display the select options.
+
+1. Your custom Text-Selector elements are now ready to use. When you click on the custom text, the selector will dynamically open and display the available options.
 
 ## Example
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text-Selector Example</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="text-selector.min.js"></script>
+    <link rel="stylesheet" href="text-selector.min.css">
 </head>
+
 <body>
-    <select id="mySelect">
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
+    <select id="select" class="text-selector" text-class="prova" text-element="h1">
+        <option value="a">option 1</option>
+        <option value="b">option 2</option>
+        <option value="c">option 3</option>
+        <option value="d">option 4</option>
     </select>
+    
+    <!-- Additional Text-Selector elements -->
 
-    <div id="myText">Click me to select an option</div>
-
-    <script src="text-selector.js"></script>
     <script>
-        textselectorinit([
-            { text: 'myText', data: 'mySelect' }
-        ]);
+        window.onload = function () {
+            textSelector.init();
+        };
     </script>
 </body>
+
 </html>
+
 ```
 
 ## License

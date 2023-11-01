@@ -1,10 +1,16 @@
-@import url(https://fonts.googleapis.com/css2&family=Roboto&display=swap);
-.text-selector {
+/* text-selector V0.1.1 - Made by Pietro Bossolasco */
+/* For docs -> https://github.com/PietroBossolasco/text-selector */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+.text-selector{
+    display: none;
+}
+.text-selector-text {
   user-select: none;
   cursor: pointer;
 }
 .text-selector-selector {
   position: absolute;
+  z-index: 1001;
   display: none;
   padding: 10px;
   width: 200px;
@@ -46,4 +52,7 @@
 }
 .text-selector-selected {
   background-color: #e2e2e2;
+}
+.text-selector-text-disabled{
+  cursor: default !important;
 }
